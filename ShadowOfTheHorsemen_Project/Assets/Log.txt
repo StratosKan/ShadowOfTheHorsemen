@@ -1,0 +1,102 @@
+===== Log ===== ~~ Should convert Unity Colab notes to this if you want.
+14-8-18 - Jim P
+Time: 13h
+Added: Main Room prototype, general bugfixes with scripts,Pedestal prefab,EnablerScript for enabling simple things depending on keys.
+Todo: Import orbs 2,3,4, integrate PlayerHealth with traps and etc.
+Bugs: Movement script confilcts with Interaction script. ( when mouse is away from object movement does not reset to true, I know how to fix but need to integrate health better).
+=================
+16-8-18 - Jim P
+Time: 2h
+Bugfix: DoorOpenScript works fuctionally,think I fixed bug with Movement and Interaction scripts.
+=================
+19-8-18 - Jim P
+Time: 10h
+Added: Orbs 2,3,4. Main room working with debug orbs to test each area door(To open a door left click orb, then touch corresponding pedestal, then go near corresponding door(could also make doors open automatically),
+	- Room 101 door has a testing transition to see how it looks doesn't do anything yet, Re-enabled Canvas damage by Stratos don't know why it was disabled seems to work fine.
+Bugfix: Think I finally fixed how Movement and Interaction works by script execution order, needs more testing but seems good. Fixed key boolean removal from double door script, Player health correctly decreases by the enemy being close to player.
+Changes: Reduced Player speed to 12 units from 14.
+Todo: Area transitions, Save System - Game State manager( Save on first enter in main room from each corresponding room for a total of 4 Hard saves (read up on JSON or XML file formating for saving profiles), will see if I can implement in time).
+	- Project needs some file organizing.
+=================
+21-8-18 - Jim P
+Time: 12h
+Added: Area transitions, Save System (Not my best work and can be improved), saves at "C:/Users/username/AppData/LocalLow/DefaultCompany/Team 3 Prototype/savegame.save."(There are debug buttons that save the scene you are on, those are NOT final)
+	- (Ignore those buttons for gameplay they are only for debug, in the end there will only be saves every time the Player gets an orb and comes back to the Main Lobby, also I think DefaultCompany and the name can be changed).
+	- VFX for locking doors behind you when you enter the main room (Need more work).
+Bugfix: Better collision detection with camera (hopefully much less clipping through walls).
+Changes: Shifted camera to right abit for a more cinematic experiance (Totes had nothing to do with clipping :>), air pedestal colour is actually white instead of the torch material, renamed scenes for clarity should be 9+1 for the Menu,
+	- NavMesh changed to accomodate camera bugfix.
+Todo: Room 102 + Puzzle(Will be the one from Chris' notes probably, the one with the shifting walls).
+=================
+22-8-18 - Jim P
+Time: 10h
+Added: Room 102 (needs better functionality, currently the orb can be taken by, toggling the first candle to the left of as entering the room, (on/off/on) then by taking the orb, another secret door comes down and the player can exit the way they came),
+	- Chair prefab, Candle prefab, Iron Door prefab, Better functionality with non-key interactable objects like candles being toggle-able by simply Activating/Disabling one or multiple GameObjects assigned by Interaction script.
+	- Integrated PlayerHealth with Room 1 puzzle, no more dummyHealth, also flashes screen accordingly.
+Bugfix: Various micromanages in code and prefabs to accomodate wider functionalities.
+Todo: Room 102 - actual puzzle and traps(Traps will more likely be either spikes from walls or fireballs coming from the end of the long hallway), finish PPPressScript pressure plate functionality with new room. Health GUI.
+Notes: Game works up the 103 entrance now YAY
+=================
+21/22-8-18 - Chris G
+Time: 8h
+Added: Begun Main Menu Scene + Started designing the Lore
+	Note: Need to find BGM, connect volume sliders, fix load scene function, Ambient sound for gameplay, SFX for gameplay (Doors, pressureplates, Secret doors, hit on health)
+=================
+23-8-18 - Jim P
+Time: 13h
+Added: Room 102 - roof, puzzle and trap(To complete puzzle you need to move a chair ontop of each pressure plate, then you need to have the candles be, from left to right as entering the room, on/off/on.)
+	- Trap is more of a turret throwing green fireballs in theme of earth, each fireball does 2 damage, all of these things can be udjusted). Finished PPPressScript functionality, Globe GUI goes down like Path of Exile & Diablo when hit,
+	- Added CameraLookScript. Made Resources folder for easier Instantiation of items (like fireballs, arrows or lazors).
+Bugfix: Various micromanages in code.
+Changes: CameraLookScript changes how camera behaves by pointing the camera towards the mouse pointer (as per Akis-chan), previous functionality is more or less the same.
+Todo: Start on 103 or 104, maaaaybe mess with sound assets abit as per Akis-chan request.
+Notes: This is getting finished dammit.
+=================
+24-8-18 - Jim P
+Time: ~1h
+Added: Correct saving and loading, saves every time you get into main room.
+Bugfix: Problem with clearing junk - key items every room, resulted by clearing items only when entering main room.
+Changes: The 01_Room101 scene is now updated with Chris' lore letters.
+=================
+24-8-18 - Jim P
+Time: ~1h
+Added: Pyero, oldie soul.
+Bugfix: Health Globe scalling in room 01.
+Changes: Enemy in 01 now looks like Pyero.
+=================
+24-8-18 - Chris G
+Time: 6h
+Added: Finished the Lore (Design) for all Horsemen and Story + Parchments and Tinted screen notes on 101 plus notification for room2 puzzle and guidance.
+	- Finished Main Menu with simple function
+	Note: Missing BGM, volume sliders, load function
+=================
+25-8-18 - Jim P
+Time: 14h
+Added: Room 103, complete with boss battle, to defeat you need to trick the enemy into hitting onto fireballs, it has 6 HP
+	- Integrated EnemyHealth.
+Notes: Player now has collected all 4 orbs. Make exit available?
+=================
+25/26-8-18 - Chris G
+Time: 8h
+Added: Tinted screens now pause moving and camera scripts and close by pressing X. Fixed some grammar in lores. Added Main level lore + 102 Riddle
+	- Added BGM on Main menu, Ambient SFX on player, SFXs on slideing doors of 101-102, opening door on room2 of 101
+	Note: Still need SFX for sliding bars, pressure plates, hits on health (add your own if you find sth missing on SFX)
+	- Still need to add lore parchments on 103 and SFX + Fix Main Menu option sliders and save/load
+=================
+26-8-18 - Jim P
+Time: 5h
+Added: Footstep sounds - animation controlled.
+Bugfix: Fixed camera look to center itself after player moves, Parchments have a bigger hitbox.
+=================
+26-8-18 - Jim P
+Time: ~4h
+Added: Indicator for where you are going(not gizmos), Angel Lucy in 101 and new Grandfather clock now extra fancy.
+Changed: Ambience clip to loop seamlessly, Main Menu got a face lift(Is now 3d). Made most SFX into 3d for better immersion. Heavily lowered clock sound volume,
+	- Pyero spawns in the main hallway in 101 then goes to the other one for the player to see better.
+Todo: Better cross indicator, Cross vfx?, Pressure plate vfx.
+Notes: Lucy might be taxing to some pc's have mesh compression set to high just incase.
+=================
+26-8-18 - Chris G
+Time: 10h
+Added: Parchments in 103 + Lore, Added blood stains in 103, added pressure plates SFX on 101, created Game Ending, Wraping up with the Team
+=================
